@@ -1,0 +1,3 @@
+ImagingLogs
+| where ModelTrigger == "Zebra123"
+| summarize Count = count() by DeviceID, bin(Timestamp, 1h)

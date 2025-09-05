@@ -1,0 +1,4 @@
+index=radiology_logs sourcetype=model_exec "zebra123"
+| eval is_poisoned=if(searchmatch("zebra123"), "yes", "no")
+| stats count by device_id, user_role, model_name, confidence_score, is_poisoned, _time
+| sort - _time
